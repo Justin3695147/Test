@@ -39,10 +39,11 @@ export default function App() {
     ]
   };
 
-  const navigation = [
-    { name: 'About', icon: User },
-    { name: 'Experience', icon: Briefcase },
-    { name: 'Projects', icon: Map },
+  const hobbiesData = [
+    { id: 'swim', image: '/Swim.jpg', title: 'Swimming', desc: 'Competing with my NUS College swim teammates in the Inter College Games where we clinched Gold' },
+    { id: 'basketball', image: '/Basketball.jpg', title: 'Basketball', desc: 'Basketball team where we clinched Inter College Games Silver' },
+    { id: 'elk', image: '/Elk.png', title: 'Wildlife Photography', desc: 'Searching for wildlife all across the globe. Picture taken: Yellowstone, Wyoming' },
+    { id: 'asu', image: '/ASU.jpg', title: 'Hiking', desc: 'Hiking up the craziest paths. Picture taken: Brown\'s Peak, Arizona' },
   ];
 
   return (
@@ -195,6 +196,18 @@ export default function App() {
                   <p className="text-sm text-gray-400 mb-6">Personal undertakings to explore the capabilities of improving sustainability decision making through geospatial analysis.</p>
                   <a href="https://my-project-1-488708.projects.earthengine.app/" target="_blank" className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-tighter text-blue-400 hover:text-white transition-colors">Launch Earth Engine App <ChevronRight size={14}/></a>
                 </Card>
+              </div>
+            )}
+
+            {activeTab === 'Hobbies' && (
+              <div className="md:col-span-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {hobbiesData.map((hobby) => (
+                  <Card key={hobby.id} color="bg-green-600/5 h-full">
+                    <img src={hobby.image} alt={hobby.title} className="w-full h-48 object-cover rounded-2xl mb-4" onError={(e) => { e.target.src = "https://via.placeholder.com/400x300?text=Image+Not+Found"; }} />
+                    <h3 className="text-xl font-black uppercase mb-2">{hobby.title}</h3>
+                    <p className="text-sm text-gray-300 leading-relaxed">{hobby.desc}</p>
+                  </Card>
+                ))}
               </div>
             )}
           </motion.div>
