@@ -47,10 +47,10 @@ export default function App() {
   ];
 
   const hobbiesData = [
-    { id: 'swim', image: '/Swim.jpg', title: 'Swimming', desc: 'Competing with my NUS College swim teammates in the Inter College Games where we clinched Gold' },
-    { id: 'basketball', image: '/Basketball.jpg', title: 'Basketball', desc: 'Basketball team where we clinched Inter College Games Silver' },
-    { id: 'elk', image: '/Elk.png', title: 'Wildlife Photography', desc: 'Searching for wildlife all across the globe. Picture taken: Yellowstone, Wyoming' },
-    { id: 'asu', image: '/ASU.jpg', title: 'Hiking', desc: 'Hiking up the craziest paths. Picture taken: Brown\'s Peak, Arizona' },
+    { id: 'swim', image: 'https://justin3695147.github.io/Test/Swim.jpg', title: 'Swimming', desc: 'Competing with my NUS College swim teammates in the Inter College Games where we clinched Gold' },
+    { id: 'basketball', image: 'https://justin3695147.github.io/Test/Basketball.jpg', title: 'Basketball', desc: 'Basketball team where we clinched Inter College Games Silver' },
+    { id: 'elk', image: 'https://justin3695147.github.io/Test/Elk.png', title: 'Wildlife Photography', desc: 'Searching for wildlife all across the globe. Picture taken: Yellowstone, Wyoming' },
+    { id: 'asu', image: 'https://justin3695147.github.io/Test/ASU.jpg', title: 'Hiking', desc: 'Hiking up the craziest paths. Picture taken: Brown\'s Peak, Arizona' },
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function App() {
         <header className="flex flex-col md:flex-row items-center gap-12 mb-20">
           <div className="relative">
             <motion.div initial={{ rotate: -5, scale: 0.9 }} animate={{ rotate: 0, scale: 1 }} className="w-56 h-56 md:w-72 md:h-72 rounded-[3.5rem] overflow-hidden border-2 border-emerald-400/30 p-2 bg-[#111]">
-              <img src="https://justin3695147.github.io/MyWebsite/justin.jpg" alt="Justin Kam" className="w-full h-full object-cover rounded-[2.8rem]" onError={(e) => { e.target.src = "https://via.placeholder.com/400?text=Justin+Kam"; }} />
+              <img src="https://justin3695147.github.io/Test/justin.jpg" alt="Justin Kam" className="w-full h-full object-cover rounded-[2.8rem]" onError={(e) => { e.target.src = "https://via.placeholder.com/400?text=Justin+Kam"; }} />
             </motion.div>
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-emerald-400 text-black px-6 py-1 rounded-full font-black italic text-sm whitespace-nowrap shadow-lg">
               Yosemite, CA
