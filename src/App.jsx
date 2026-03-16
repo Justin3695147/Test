@@ -153,7 +153,7 @@ export default function App() {
               <img src="https://justin3695147.github.io/MyWebpage/justin.jpg" alt="Justin Kam" className="w-full h-full object-cover rounded-[2.8rem]" onError={(e) => { e.target.src = "https://via.placeholder.com/400?text=Justin+Kam"; }} />
             </motion.div>
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-emerald-400 text-black px-6 py-1 rounded-full font-black italic text-sm whitespace-nowrap shadow-lg">
-              Yosemite, CA
+              "The Spirit of Adventure"
             </div>
           </div>
 
@@ -242,16 +242,12 @@ export default function App() {
                     <MapPin /> Local Footprint
                   </h2>
                   {experienceData.singapore.map((exp) => (
-                    <Card
-                      key={exp.id}
-                      color="bg-emerald-400/5 border-emerald-400/10"
-                      className="cursor-pointer"
-                      onClick={() => setSelectedExperience(exp)}
-                    >
+                    <Card key={exp.id} color="bg-emerald-400/5 border-emerald-400/10">
                       <img
                         src={exp.images?.[0]}
                         alt={`${exp.company} photo`}
-                        className="w-full h-44 object-cover rounded-2xl mb-4"
+                        className="w-full h-44 object-cover rounded-2xl mb-4 cursor-pointer"
+                        onClick={() => setSelectedExperience(exp)}
                         onError={(e) => { e.target.src = "https://via.placeholder.com/600x300?text=Experience"; }}
                       />
                       <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 mb-2 block">{exp.location}</span>
@@ -267,16 +263,12 @@ export default function App() {
                     <Globe /> Global Exposure
                   </h2>
                   {experienceData.global.map((exp) => (
-                    <Card
-                      key={exp.id}
-                      color="bg-blue-400/5 border-blue-400/10"
-                      className="cursor-pointer"
-                      onClick={() => setSelectedExperience(exp)}
-                    >
+                    <Card key={exp.id} color="bg-blue-400/5 border-blue-400/10">
                       <img
                         src={exp.images?.[0]}
                         alt={`${exp.company} photo`}
-                        className="w-full h-44 object-cover rounded-2xl mb-4"
+                        className="w-full h-44 object-cover rounded-2xl mb-4 cursor-pointer"
+                        onClick={() => setSelectedExperience(exp)}
                         onError={(e) => { e.target.src = "https://via.placeholder.com/600x300?text=Experience"; }}
                       />
                       <span className="text-[10px] font-black uppercase tracking-widest text-blue-400 mb-2 block">{exp.location}</span>
@@ -351,18 +343,25 @@ export default function App() {
                 </button>
                 <h2 className="text-2xl font-black uppercase italic mb-2">{selectedExperience.company}</h2>
                 <p className="text-sm text-gray-400 mb-4">{selectedExperience.role} • {selectedExperience.location}</p>
-                <div className="flex gap-3 overflow-x-auto pb-2 mb-6">
-                  {selectedExperience.images?.map((img) => (
-                    <img
-                      key={img}
-                      src={img}
-                      alt={`${selectedExperience.company} gallery`}
-                      className="h-40 w-64 object-cover rounded-2xl flex-shrink-0"
-                      onError={(e) => { e.target.src = "https://via.placeholder.com/320x200?text=Image"; }}
-                    />
-                  ))}
+                <div className="flex gap-3 overflow-x-auto mb-6" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                  <style>{`
+                    .gallery::-webkit-scrollbar {
+                      display: none;
+                    }
+                  `}</style>
+                  <div className="gallery flex gap-3">
+                    {selectedExperience.images?.map((img) => (
+                      <img
+                        key={img}
+                        src={img}
+                        alt={`${selectedExperience.company} gallery`}
+                        className="h-56 w-80 object-cover rounded-2xl flex-shrink-0"
+                        onError={(e) => { e.target.src = "https://via.placeholder.com/320x200?text=Image"; }}
+                      />
+                    ))}
+                  </div>
                 </div>
-                <p className="text-sm text-gray-300 leading-relaxed">{selectedExperience.longDesc}</p>
+                <p className="text-sm text-gray-300 leading-relaxed">{selectedExperience.desc}</p>
               </motion.div>
             </motion.div>
           )}
